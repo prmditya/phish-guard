@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Phish Guard</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,14 +29,14 @@
       <h2>Apakah Linknya Aman?</h2>
       <p>
         Scan URL yang ingin kamu kunjungi untuk mendeteksi apakah link tersebut
-        terindikasi phising.
+        terindikasi phishing.
       </p>
       <form id="urlForm">
         <input
           type="text"
           id="url"
           name="url"
-          placeholder="Masukkan URL anda disini"
+          placeholder="Masukkan URL anda contoh: https://www.phishguard.com"
           required
         />
         <button type="submit">Analyze</button>
@@ -46,7 +47,7 @@
     </div>
 
     <footer>
-    <p>Made with ❤️ by <a href="https://github.com/prmditya/phish-guard" target="_blank" >us</a></p>
+    <p>Made with ❤️ by <a href="https://github.com/prmditya/phish-guard" target="_blank" >Kelompok 5</a></p>
     </footer>
 
     <script>
@@ -68,7 +69,7 @@
             .then((data) => {
               document.getElementById(
                 "result"
-              ).innerText = `That link is ${data.result}`;
+              ).innerText = `That link is identified as ${data.result}`;
               console.log(data.result);
               if (data.result === "Safe") {
                 alertElement.classList.remove("hidden", "result-warning");
