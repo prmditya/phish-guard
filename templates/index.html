@@ -1,41 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Phishing URL Detection</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Phish Guard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h1>Phishing URL Detection</h1>
-        <form id="urlForm">
-            <input type="text" id="url" name="url" placeholder="Enter URL" required>
-            <button type="submit">Check URL</button>
-        </form>
+      <div class="title-container">
+        <img
+          src="{{ url_for('static', filename='logo.svg') }}"
+          alt="Phish Guard Logo"
+          height="94px"
+          width="94px"
+        />
+        <h1>Phish Guard</h1>
+      </div>
+      <h2>Apakah Linknya Aman?</h2>
+      <p>
+        Scan URL yang ingin kamu kunjungi untuk mendeteksi apakah link tersebut
+        terindikasi phising.
+      </p>
+      <form id="urlForm">
+        <input
+          type="text"
+          id="url"
+          name="url"
+          placeholder="Masukkan URL anda disini"
+          required
+        />
+        <button type="submit">Analyze</button>
+      </form>
+      <div class="alert hidden">
         <p id="result"></p>
+      </div>
     </div>
 
+    <footer>
+    <p>Made with ❤️ by <a href="https://github.com/prmditya/phish-guard" target="_blank" >us</a></p>
+    </footer>
+
     <script>
-        document.getElementById('urlForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const url = document.getElementById('url').value;
-            
-            fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({url}),
+      const alertElement = document.querySelector(".alert");
+      document
+        .getElementById("urlForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const url = document.getElementById("url").value;
+
+          fetch("/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ url }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById(
+                "result"
+              ).innerText = `That link is ${data.result}`;
+              console.log(data.result);
+              if (data.result === "Safe") {
+                alertElement.classList.remove("hidden", "result-warning");
+                alertElement.classList.add("result-safe");
+              } else if (data.result === "Phishing") {
+                alertElement.classList.remove("hidden", "result-safe");
+                alertElement.classList.add("result-warning");
+              }
             })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('result').innerText = `Result: ${data.result}`;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('result').innerText = 'An error occurred.';
+            .catch((error) => {
+              console.error("Error:", error);
+              document.getElementById("result").innerText =
+                "An error occurred.";
             });
         });
     </script>
-</body>
+  </body>
 </html>
