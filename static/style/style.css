@@ -20,7 +20,7 @@ p {
 
 body {
   background-color: var(--background-color);
-  background-image: url(bg.png);
+  background-image: url(../asset/bg.png);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -138,6 +138,7 @@ button:hover {
   text-align: left;
   border-radius: 10px;
   padding: 10px 15px;
+  font-size: 14px;
 }
 
 .result-safe {
