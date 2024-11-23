@@ -2,11 +2,18 @@
   <img src="./static/asset/title.png" width="600px"/>
 </p>
 
+<div align="center">
+
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Contributors](https://img.shields.io/github/contributors/prmditya/phish-guard)
 
+</div>
 
-AI Powered Website for identifying phishing website from URL. 
+<img src="./static/asset/screenshot.png">
+
+<br>
+
+AI Powered Website for identifying phishing website from URL.
 
 ## **Table of Contents**
 - [**Table of Contents**](#table-of-contents)
@@ -36,7 +43,7 @@ Highlight the key features of this project.
 ---
 
 ## **Technologies Used**
-List the technologies, tools, or frameworks you used in the project.  
+List the technologies, tools, or frameworks that being used in the project.  
 - [Flask](https://flask.palletsprojects.com/en/stable/) - A lightweight web framework for building web applications in Python. 
 - [Scikit-Learn](https://scikit-learn.org/stable/) - A machine learning library for Python, used for building and evaluating the model.
 - [Pandas](https://pandas.pydata.org/docs/getting_started/index.html) - A data manipulation and analysis library used to handle datasets.
