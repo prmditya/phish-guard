@@ -221,3 +221,36 @@ footer a:hover {
     transform: rotate(360deg);
   }
 }
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .container {
+    margin-top: 40%;
+    width: 90vw;
+  }
+
+  .title-container {
+    font-size: 30px;
+    gap: 5px;
+    height: auto;
+  }
+
+  .title-container img {
+    width: 55px;
+  }
+
+  h2 {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .container p{
+    width: 90%;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  footer {
+    font-size: 11px;
+  }
+}
