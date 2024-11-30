@@ -102,6 +102,6 @@ Contributions are welcome! Follow these steps:
 I would like to express my gratitude to the following resources and individuals who contributed to this project:
 
 - The inspiration for the project came from this [Kaggle notebook on URL classification](https://www.kaggle.com/code/busrabetulcavusoglu/urls-classification).
-- I would also like to thank my friends, [Bizzati Hanif R.F](), [M. Yusuf Ramadhan](), and [Fatyatulhaqq Diando N](), for their support and assistance throughout the development of this project.
+- I would also like to thank my friends, [Bizzati Hanif R.F](https://github.com/Bizzati), [M. Yusuf Ramadhan](), and [Fatyatulhaqq Diando N](), for their support and assistance throughout the development of this project.
 
 ---
