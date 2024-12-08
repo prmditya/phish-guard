@@ -59,6 +59,8 @@ def extract_features(url):
             print(f"Error fetching ASN for IP: {e}")
             features['asn_ip'] = 'N/A'
 
+    features['asn_ip'] = int(features['asn_ip']) if features['asn_ip'] != 'N/A' else 0
+
     # Extracting additional features from the URL path
     # 1. directory_length: Length of the directories in the URL path
     directories = path.strip("/").split("/")
@@ -110,7 +112,7 @@ def extract_features(url):
             if expiration_date and isinstance(expiration_date, datetime):
                 current_time = datetime.now()
                 time_remaining = (expiration_date - current_time).total_seconds()
-                features['time_domain_expiration'] = time_remaining/86400  # Time remaining in seconds
+                features['time_domain_expiration'] = time_remaining  # Time remaining in seconds
             else:
                 features['time_domain_expiration'] = 0  # Set to 0 if expiration date is unavailable
         except Exception as e:

@@ -14,7 +14,7 @@ def predict(url):
 
   # Ensure column names match the model's expected features (if trained with names)
   # Convert the DataFrame to a numpy array to drop feature names if needed
-  prediction = model.predict(features_df.to_numpy())[0]  # sklearn handles DataFrame if names match
+  prediction = model.predict(features_df.values)[0]  # sklearn handles DataFrame if names match
   print(f'Prediction: {prediction}')
 
   result = 'Phishing' if prediction == 1 else 'Safe'
